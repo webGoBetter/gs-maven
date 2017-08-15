@@ -8,25 +8,25 @@ projects: []
 :icons: font
 :source-highlighter: prettify
 :project_id: gs-maven
-This guide walks you through using Maven to build a simple Java project.
+本指南引导您通过使用Maven构建一个简单的java项目。
 
 == 你将构建什么
 
-You'll create an application that provides the time of day and then build it with Maven.
+你会创建一个提供了当天时间的应用程序，然后用Maven构建它。
 
 == 你需要什么
 
- - About 15 minutes
- - A favorite text editor or IDE
- - {jdk}[JDK 6] or later
+ - 大概15分钟
+ - 一个你喜欢的文本编辑器或IDE
+ - {jdk}[JDK 6] 或更新的版本
 
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 [[scratch]]
-== Set up the project
+== 建立项目
 
-First you'll need to setup a Java project for Maven to build. To keep the focus on Maven, make the project as simple as possible for now.
+首先你需要建立一个用来maven构建的Java项目。为了把焦点集中在Maven，我们现在使项目尽可能简单。
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
@@ -46,7 +46,7 @@ include::initial/src/main/java/hello/Greeter.java[]
 ----
 
 
-[[初始化]]
+[[initial]]
 
 Now that you have a project that is ready to be built with Maven, the next step is to install Maven.
 

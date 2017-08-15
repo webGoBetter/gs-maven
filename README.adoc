@@ -10,25 +10,25 @@ projects: []
 :project_id: gs-maven
 This guide walks you through using Maven to build a simple Java project.
 
-== What you'll build
+== 你将构建什么
 
 You'll create an application that provides the time of day and then build it with Maven.
 
-== What you'll need
+== 你需要什么
 
  - About 15 minutes
  - A favorite text editor or IDE
  - {jdk}[JDK 6] or later
 
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 [[scratch]]
 == Set up the project
 
 First you'll need to setup a Java project for Maven to build. To keep the focus on Maven, make the project as simple as possible for now.
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
 
 Within the `src/main/java/hello` directory, you can create any Java classes you want. To maintain consistency with the rest of this guide, create these two classes: `HelloWorld.java` and `Greeter.java`.
@@ -46,7 +46,7 @@ include::initial/src/main/java/hello/Greeter.java[]
 ----
 
 
-[[initial]]
+[[初始化]]
 
 Now that you have a project that is ready to be built with Maven, the next step is to install Maven.
 
@@ -73,7 +73,7 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 
 Congratulations! You now have Maven installed.
 
-== Define a simple Maven build
+== 定义一个简单的Maven构建
 Now that Maven is installed, you need to create a Maven project definition. Maven projects are defined with an XML file named _pom.xml_. Among other things, this file gives the project's name, version, and dependencies that it has on external libraries.
 
 Create a file named _pom.xml_ at the root of the project and give it the following contents:
@@ -97,7 +97,7 @@ NOTE: When it comes to choosing a versioning scheme, Spring recommends the [sema
 At this point you have a minimal, yet capable Maven project defined.
 
 
-== Build Java code
+== 构建Java代码
 Maven is now ready to build the project. You can execute several build lifecycle goals with Maven now, including goals to compile the project's code, create a library package (such as a JAR file), and install the library in the local Maven dependency repository.
 
 To try out the build, issue the following at the command line:
@@ -128,7 +128,7 @@ The _install_ goal will compile, test, and package your project's code and then 
 
 Speaking of dependencies, now it's time to declare dependencies in the Maven build.
 
-== Declare Dependencies
+== 声明依赖
 The simple Hello World sample is completely self-contained and does not depend on any additional libraries. Most applications, however, depend on external libraries to handle common and complex functionality.
 
 For example, suppose that in addition to saying "Hello World!", you want the application to print the current date and time. While you could use the date and time facilities in the native Java libraries, you can make things more interesting by using the Joda Time libraries.
@@ -165,7 +165,7 @@ By default, all dependencies are scoped as `compile` dependencies. That is, they
 
 Now if you run `mvn compile` or `mvn package`, Maven should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
 
-== Write a Test
+== 写单元测试
 
 First add JUnit as a dependency to your pom.xml, in the test scope:
 
@@ -202,13 +202,13 @@ NOTE: The completed **pom.xml** file is using the http://maven.apache.org/plugin
 for the simple convenience of making the JAR file executable. The focus of this guide is getting started with Maven,
 not using this particular plugin.
 
-== Summary
+== 总结
 Congratulations! You've created a simple yet effective Maven project definition for building Java projects.
 
-== See Also
+== 参考
 
 The following guides may also be helpful:
 
-* https://spring.io/guides/gs/gradle/[Building Java Projects with Gradle]
+* http://knos.top/guides/gs/gradle/[Building Java Projects with Gradle]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]

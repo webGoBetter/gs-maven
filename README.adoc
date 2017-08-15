@@ -31,7 +31,7 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
 
-Within the `src/main/java/hello` directory, you can create any Java classes you want. To maintain consistency with the rest of this guide, create these two classes: `HelloWorld.java` and `Greeter.java`.
+在 `src/main/java/hello` 目录下, 你能创建一个你想要的Java类。为了保持与本指南其余部分的一致性，创建这两个类: `HelloWorld.java` 和 `Greeter.java`.
 
 `src/main/java/hello/HelloWorld.java`
 [source,java]
@@ -48,19 +48,19 @@ include::initial/src/main/java/hello/Greeter.java[]
 
 [[initial]]
 
-Now that you have a project that is ready to be built with Maven, the next step is to install Maven.
+现在，你已经为Maven构建准备了一个项目，下一步就是安装Maven。
 
-Maven is downloadable as a zip file at http://maven.apache.org/download.cgi. Only the binaries are required, so look for the link to apache-maven-_{version}_-bin.zip or apache-maven-_{version}_-bin.tar.gz.
+可以在http://maven.apache.org/download.cgi下载Maven的zip文件。只有二进制文件是必需的，所以寻找 apache-maven-_{version}_-bin.zip 或A apache-maven-_{version}_-bin.tar.gz 的链接。
 
-Once you have downloaded the zip file, unzip it to your computer. Then add the _bin_ folder to your path.
+一旦你已经下载压缩文件，解压缩到您的计算机。然后加入 _bin_ 文件夹到你的路径。
 
-To test the Maven installation, run `mvn` from the command-line:
+测试Maven的安装，在命令行运行 `mvn` ：
 
 ----
 mvn -v
 ----
 
-If all goes well, you should be presented with some information about the Maven installation. It will look similar to (although perhaps slightly different from) the following:
+如果一切顺利，你应该得到一些关于Maven的安装信息。它看起来类似于（尽管可能略有不同）以下:
 
 ....
 Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 07:51:28-0600)
@@ -71,7 +71,7 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 ....
 
-Congratulations! You now have Maven installed.
+祝贺你!你现在已经装好Maven。
 
 == 定义一个简单的Maven构建
 Now that Maven is installed, you need to create a Maven project definition. Maven projects are defined with an XML file named _pom.xml_. Among other things, this file gives the project's name, version, and dependencies that it has on external libraries.

@@ -188,9 +188,9 @@ Maven使用一个叫做 "surefire" 的插件运行单元测试。这个插件默
 mvn test
 ----
 
-or just use `mvn install` step as we already showed above (there is a lifecycle definition where "test" is included as a stage in "install").
+或只是运行 `mvn install` 的这一步骤，像我们上面已经展示了的。（有一个生命周期的定义， "test" 是作为 "install" 一个阶段的）。
 
-Here's the completed `pom.xml` file:
+这里是已完成的文件:
 
 `pom.xml`
 [source,xml]
@@ -198,17 +198,16 @@ Here's the completed `pom.xml` file:
 include::complete/pom.xml[]
 ----
 
-NOTE: The completed **pom.xml** file is using the http://maven.apache.org/plugins/maven-shade-plugin/[Maven Shade Plugin]
-for the simple convenience of making the JAR file executable. The focus of this guide is getting started with Maven,
-not using this particular plugin.
+NOTE: 完整的 **pom.xml** 文件是使用了 http://maven.apache.org/plugins/maven-shade-plugin/[Maven Shade Plugin] 
+以简单方便的方式使JAR文件的可以被执行。本指南的重点是开始使用Maven，而不是使用特定的插件。
 
 == 总结
-Congratulations! You've created a simple yet effective Maven project definition for building Java projects.
+祝贺你!你已经为构建java项目创建了一个简单而有效的Maven项目定义。
 
 == 参考
 
-The following guides may also be helpful:
+下面的指南可能也有帮助：
 
-* http://knos.top/guides/gs/gradle/[Building Java Projects with Gradle]
+* http://knos.top/guides/gs/gradle/[使用Gradle构建Java项目]
 
 include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]

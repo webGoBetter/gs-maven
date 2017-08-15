@@ -74,9 +74,9 @@ OS name: "mac os x", version: "10.8.3", arch: "x86_64", family: "mac"
 祝贺你!你现在已经装好Maven。
 
 == 定义一个简单的Maven构建
-Now that Maven is installed, you need to create a Maven project definition. Maven projects are defined with an XML file named _pom.xml_. Among other things, this file gives the project's name, version, and dependencies that it has on external libraries.
+现在Maven已经安装，你需要创建一个Maven项目定义。Maven项目在一个叫 _pom.xml_ 的XML文件中定义。除此之外，这个文件给出了项目在外部库上的名称、版本和依赖项。
 
-Create a file named _pom.xml_ at the root of the project and give it the following contents:
+在项目的根目录下创建一个名为 _pom.xml_ 的文件，下面是它的的内容:
 
 `pom.xml`
 [source,XML]
@@ -84,17 +84,17 @@ Create a file named _pom.xml_ at the root of the project and give it the followi
 include::initial/pom.xml[]
 ----
 
-With the exception of the optional `<packaging>` element, this is the simplest possible _pom.xml_ file necessary to build a Java project. It includes the following details of the project configuration:
+除了可选的 `<packaging>` 元素，这可能是创建一个java项目所需要的最简单的 _pom.xml_ 文件。它包含了项目配置的以下详细信息：
 
-* `<modelVersion>`. POM model version (always 4.0.0).
-* `<groupId>`. Group or organization that the project belongs to. Often expressed as an inverted domain name.
-* `<artifactId>`. Name to be given to the project's library artifact (for example, the name of its JAR or WAR file).
-* `<version>`. Version of the project that is being built.
-* `<packaging>` - How the project should be packaged. Defaults to "jar" for JAR file packaging. Use "war" for WAR file packaging.
+* `<modelVersion>`. POM模型版本(总是 4.0.0).
+* `<groupId>`. 项目属于的组或组织。常用反向域名表示。
+* `<artifactId>`. 要给项目的库工件（library artifact）（例如，它的JAR或WAR文件的名称）的名称。
+* `<version>`. 该项目正在建造的版本。
+* `<packaging>` - 项目应该如何打包。JAR文件打包的默认值是 "jar"。使用 "war" 进行WAR文件打包。
 
-NOTE: When it comes to choosing a versioning scheme, Spring recommends the [semantic versioning](http://semver.org) approach.
+NOTE: 当谈到选择版本控制方案，Spring推荐 [semantic versioning](http://semver.org) 的方法。
 
-At this point you have a minimal, yet capable Maven project defined.
+在目前你有一个最小的，但有能力的Maven项目定义。
 
 
 == 构建Java代码

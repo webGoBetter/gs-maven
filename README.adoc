@@ -114,7 +114,7 @@ mvn compile
 mvn package
 ----
 
-_package_ 目标将编译你的java代码，运行测试，并在 _target_ 目录完成包装代码到一个JAR文件。JAR文件的名字将基于项目的 `<artifactId>` 和 `<version>` 。例如，之前给定的最小 _pom.xml _ 文件，JAR文件将被命名为 _{project_id}-0.1.0.jar_。
+_package_ 目标将编译你的java代码，运行测试，并在 _target_ 目录完成包装代码到一个JAR文件。JAR文件的名字将基于项目的 `<artifactId>` 和 `<version>` 。例如，之前给定的最小 _pom.xml_ 文件，JAR文件将被命名为 _{project_id}-0.1.0.jar_ 。
 
 NOTE: 如果你将 `<packaging>` 的值从 "jar" 改到 "war"，结果 _target_ 目录下将不是一个jar文件而是war文件。
 

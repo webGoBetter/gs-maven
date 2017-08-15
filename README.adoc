@@ -98,42 +98,42 @@ NOTE: 当谈到选择版本控制方案，Spring推荐 [semantic versioning](htt
 
 
 == 构建Java代码
-Maven is now ready to build the project. You can execute several build lifecycle goals with Maven now, including goals to compile the project's code, create a library package (such as a JAR file), and install the library in the local Maven dependency repository.
+Maven已经为构建项目准备好了。你现在可以用Maven执行几个构建生命周期的目标，包括编制项目代码的目标，创建一个封装库（如JAR文件），并在本地Maven依赖库安装库。
 
-To try out the build, issue the following at the command line:
+要尝试构建，在命令行运行以下命令:
 
 ----
 mvn compile
 ----
 
-This will run Maven, telling it to execute the _compile_ goal. When it's finished, you should find the compiled _.class_ files in the _target/classes_ directory.
+这会运行Maven,告诉它执行 _compile_ 的目标。当它完成的时候,你应该能够在 _target/classes_ 目录下找到编译后的 _.class_  文件。
 
-Since it's unlikely that you'll want to distribute or work with _.class_ files directly, you'll probably want to run the _package_ goal instead:
+因为你几乎不能可能想直接分发或使用 _.class_ 文件，反倒你可能想运行 _package_ 的目标：
 
 ----
 mvn package
 ----
 
-The _package_ goal will compile your Java code, run any tests, and finish by packaging the code up in a JAR file within the _target_ directory. The name of the JAR file will be based on the project's `<artifactId>` and `<version>`. For example, given the minimal _pom.xml_ file from before, the JAR file will be named _{project_id}-0.1.0.jar_.
+_package_ 目标将编译你的java代码，运行测试，并在 _target_ 目录完成包装代码到一个JAR文件。JAR文件的名字将基于项目的 `<artifactId>` 和 `<version>` 。例如，之前给定的最小 _pom.xml _ 文件，JAR文件将被命名为 _{project_id}-0.1.0.jar_。
 
-NOTE: If you've changed the value of `<packaging>` from "jar" to "war", the result will be a WAR file within the _target_ directory instead of a JAR file.
+NOTE: 如果你将 `<packaging>` 的值从 "jar" 改到 "war"，结果 _target_ 目录下将不是一个jar文件而是war文件。
 
-Maven also maintains a repository of dependencies on your local machine (usually in a _.m2/repository_ directory in your home directory) for quick access to project dependencies. If you'd like to install your project's JAR file to that local repository, then you should invoke the `install` goal:
+Maven还维护了在本地机器上存储的依赖（通常在你的home目录的 _.m2/repository_ 目录下），为了快速访问项目依赖项。如果您想将项目的JAR文件安装到本地库，那么您应该调用 `install` 目标：
 
 ----
 mvn install
 ----
 
-The _install_ goal will compile, test, and package your project's code and then copy it into the local dependency repository, ready for another project to reference it as a dependency.
+_install_ 目标编译，测试，打包你的项目的代码，然后复制到本地的依赖库，为另一个项目引用它为一个依赖做准备。
 
-Speaking of dependencies, now it's time to declare dependencies in the Maven build.
+说到依赖，现在是时候在Maven构建中声明依赖了。
 
 == 声明依赖
-The simple Hello World sample is completely self-contained and does not depend on any additional libraries. Most applications, however, depend on external libraries to handle common and complex functionality.
+简单的Hello World示例是完全自包含的，不依赖于任何额外的库。然而，大多数应用程序依赖于外部库来处理通用的和复杂的功能。
 
-For example, suppose that in addition to saying "Hello World!", you want the application to print the current date and time. While you could use the date and time facilities in the native Java libraries, you can make things more interesting by using the Joda Time libraries.
+例如，假设除了说 "Hello World!" ，您希望应用程序打印当前日期和时间。虽然你可以在本地的java库使用日期和时间的工具，你可以使用Joda Time 的库让事情更有趣。
 
-First, change HelloWorld.java to look like this:
+首先，将helloworld.java改得看起来像这样：
 
 `src/main/java/hello/HelloWorld.java`
 [source,java]
@@ -141,9 +141,9 @@ First, change HelloWorld.java to look like this:
 include::complete/src/main/java/hello/HelloWorld.java[]
 ----
 
-Here `HelloWorld` uses Joda Time's `LocalTime` class to get and print the current time.
+这里 `HelloWorld` 用Joda Time的 `LocalTime` 类来获取和打印当前时间。
 
-If you were to run `mvn compile` to build the project now, the build would fail because you've not declared Joda Time as a compile dependency in the build. You can fix that by adding the following lines to _pom.xml_ (within the `<project>` element):
+如果你运行 `mvn compile` 构建项目，因为你没有在构建中声明Joda Time作为编译依赖，构建会失败。你可以通过添加以下代码到 _pom.xml_ （在 `<project>` 元素中）解决：
 
 [source,xml,indent=0]
 ----
@@ -152,29 +152,29 @@ include::complete/pom.xml[tag=joda]
 </dependencies>
 ----
 
-This block of XML declares a list of dependencies for the project. Specifically, it declares a single dependency for the Joda Time library. Within the `<dependency>` element, the dependency coordinates are defined by three sub-elements:
+此XML块声明项目的依赖项列表。具体地说，它声明Joda Time库为一个依赖。在 `<dependency>` 元素中，依赖项坐标由三个子元素定义：
 
-* `<groupId>` - The group or organization that the dependency belongs to.
-* `<artifactId>` - The library that is required.
-* `<version>` - The specific version of the library that is required.
+* `<groupId>` - 项目属于的组或组织。
+* `<artifactId>` - 所需的库。
+* `<version>` - 该库所需要的特定版本。
 
-By default, all dependencies are scoped as `compile` dependencies. That is, they should be available at compile-time (and if you were building a WAR file, including in the _/WEB-INF/libs_ folder of the WAR). Additionally, you may specify a `<scope>` element to specify one of the following scopes:
+默认情况下，所有依赖限制在 `compile` 依赖的范围（scope）。那就是，他们应该可以在编译时有效的（如果你正在建立一个 WAR 的文件，应该包含在WAR的 _/WEB-INF/libs_ 的文件夹里）。另外，您可以指定一个 `<scope>` 元素，指定为下面的scopes：
 
-* `provided` - Dependencies that are required for compiling the project code, but that will be provided at runtime by a container running the code (e.g., the Java Servlet API).
-* `test` - Dependencies that are used for compiling and running tests, but not required for building or running the project's runtime code.
+* `provided` - 是编制项目代码所需的依赖，但会在运行代码的容器的运行时（runtime）提供（例如，Java Servlet API）。
+* `test` - 编译和运行测试所需的依赖, 但是不是构建或者运行项目运行时代码所需的。
 
-Now if you run `mvn compile` or `mvn package`, Maven should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
+现在，如果你运行 `mvn compile` 或 `mvn package` ，Maven应该从Maven的中央存储库解析到Joda Time的依赖，构建将会成功。
 
 == 写单元测试
 
-First add JUnit as a dependency to your pom.xml, in the test scope:
+首先在你的pom.xml文件，添加JUnit作为一个在测试范围依赖于:
 
 [source,xml]
 ----
 include::complete/pom.xml[tag=junit]
 ----
 
-Then create a test case like this:
+然后创建一个这样的测试用例:
 
 `src/test/java/hello/GreeterTest.java`
 [source,java]
@@ -182,7 +182,7 @@ Then create a test case like this:
 include::complete/src/test/java/hello/GreeterTest.java[]
 ----
 
-Maven uses a plugin called "surefire" to run unit tests. The default configuration of this plugin compiles and runs all classes in `src/test/java` with a name matching `*Test`. You can run the tests on the command line like this
+Maven使用一个叫做 "surefire" 的插件运行单元测试。这个插件默认的配置是编译和运行中所有 `src/test/java` 目录下 与名字匹配 `*Test` 的类。您可以在命令行上运行测试，如下所示：
 
 ----
 mvn test
